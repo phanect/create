@@ -1,10 +1,9 @@
 "use strict";
 
 module.exports = {
-  "extends": "@phanect/phanective",
+  extends: "@phanect/phanective",
 
-  "env": {
-    "browser": true,
-    "node": true
+  env: {
+    node: true
   }
 };

@@ -35,3 +35,6 @@ yarn-error.log*
 
 # Other tools
 .eslintcache
+
+# React Native
+.expo/
