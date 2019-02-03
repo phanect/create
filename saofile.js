@@ -81,7 +81,6 @@ module.exports = {
       );
     }
 
-    await this.npmInstall();
     await this.npmInstall({
       packages: devDependencies,
       saveDev: true,
