@@ -15,6 +15,12 @@ module.exports = {
         default: `my ${superb()} project`,
       },
       {
+        name: "isPersonal",
+        type: "confirm",
+        message: "Is this a personal project? If this is company project, answer No.",
+        default: true,
+      },
+      {
         name: "lib",
         type: "confirm",
         message: "Is this a library? If this is an app, answer No.",
