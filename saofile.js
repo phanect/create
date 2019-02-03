@@ -15,6 +15,12 @@ module.exports = {
         default: `my ${superb()} project`,
       },
       {
+        name: "lib",
+        type: "confirm",
+        message: "Is this a library? If this is an app, answer No.",
+        default: true,
+      },
+      {
         name: "typescript",
         type: "confirm",
         message: "Use TypeScript?",
