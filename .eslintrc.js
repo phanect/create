@@ -4,6 +4,6 @@ module.exports = {
   extends: "@phanect/phanective",
 
   env: {
-    node: true
+    node: true,
   }
 };
