@@ -14,6 +14,12 @@ module.exports = {
         message: "How would you describe the new project",
         default: `my ${superb()} project`,
       },
+      {
+        name: "typescript",
+        type: "confirm",
+        message: "Use TypeScript?",
+        default: true,
+      },
     ];
   },
   actions: [
@@ -27,6 +33,11 @@ module.exports = {
         gitignore: ".gitignore",
       },
     },
+    {
+      type: "remove",
+      files: "tsconfig.json",
+      when: "!typescript",
+    },
   ],
   async completed() {
     this.gitInit();
@@ -34,6 +45,10 @@ module.exports = {
     const devDependencies = [
       "@phanect/eslint-config-phanective"
     ];
+
+    if (this.answers.typescript === true) {
+      devDependencies.push("typescript");
+    }
 
     await this.npmInstall();
     await this.npmInstall({
