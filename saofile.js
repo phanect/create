@@ -20,6 +20,13 @@ module.exports = {
         message: "Use TypeScript?",
         default: true,
       },
+      {
+        name: "env",
+        type: "list",
+        choices: [ "browser", "node" ],
+        message: "Environment",
+        default: true,
+      },
     ];
   },
   actions: [
@@ -38,6 +45,11 @@ module.exports = {
       files: "tsconfig.json",
       when: "!typescript",
     },
+    {
+      type: "remove",
+      files: "webpack.*.js",
+      when: answers => answers.env !== "browser",
+    },
   ],
   async completed() {
     this.gitInit();
@@ -48,6 +60,13 @@ module.exports = {
 
     if (this.answers.typescript === true) {
       devDependencies.push("typescript");
+    }
+
+    if (this.answers.env === "browser") {
+      devDependencies.push(
+        "webpack",
+        "webpack-dev-server",
+      );
     }
 
     await this.npmInstall();
