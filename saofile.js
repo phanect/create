@@ -14,6 +14,19 @@ module.exports = {
         message: "How would you describe the new project",
         default: `my ${superb()} project`,
       },
+      {
+        name: "typescript",
+        type: "confirm",
+        message: "Use TypeScript?",
+        default: true,
+      },
+      {
+        name: "env",
+        type: "list",
+        choices: [ "browser", "node" ],
+        message: "Environment",
+        default: true,
+      },
     ];
   },
   actions: [
@@ -27,13 +40,38 @@ module.exports = {
         gitignore: ".gitignore",
       },
     },
+    {
+      type: "remove",
+      files: "tsconfig.json",
+      when: "!typescript",
+    },
+    {
+      type: "remove",
+      files: "webpack.*.js",
+      when: answers => answers.env !== "browser",
+    },
   ],
   async completed() {
     this.gitInit();
 
+    const devDependencies = [
+      "@phanect/eslint-config-phanective"
+    ];
+
+    if (this.answers.typescript === true) {
+      devDependencies.push("typescript");
+    }
+
+    if (this.answers.env === "browser") {
+      devDependencies.push(
+        "webpack",
+        "webpack-dev-server",
+      );
+    }
+
     await this.npmInstall();
     await this.npmInstall({
-      packages: [ "@phanect/eslint-config-phanective" ],
+      packages: devDependencies,
       saveDev: true,
     });
 
