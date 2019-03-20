@@ -15,6 +15,18 @@ module.exports = {
         default: `my ${superb()} project`,
       },
       {
+        name: "isPersonal",
+        type: "confirm",
+        message: "Is this a personal project? If this is company project, answer No.",
+        default: true,
+      },
+      {
+        name: "lib",
+        type: "confirm",
+        message: "Is this a library? If this is an app, answer No.",
+        default: true,
+      },
+      {
         name: "typescript",
         type: "confirm",
         message: "Use TypeScript?",
@@ -40,6 +52,13 @@ module.exports = {
         gitignore: ".gitignore",
       },
     },
+    // Not ESLint to use the template file as real .eslintrc.* file
+    {
+      type: "move",
+      patterns: {
+        "eslintrc.js": ".eslintrc.js",
+      },
+    },
     {
       type: "remove",
       files: "tsconfig.json",
@@ -55,7 +74,7 @@ module.exports = {
     this.gitInit();
 
     const devDependencies = [
-      "@phanect/eslint-config-phanective"
+      "@phanect/eslint-config-phanective",
     ];
 
     if (this.answers.typescript === true) {
@@ -69,7 +88,6 @@ module.exports = {
       );
     }
 
-    await this.npmInstall();
     await this.npmInstall({
       packages: devDependencies,
       saveDev: true,

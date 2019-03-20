@@ -4,6 +4,11 @@
   "description": "<%= description %>",
   "keywords": [],
   "author": "Jumpei Ogawa <phanective@gmail.com>",
+  <% if (lib === true) { %>
+  "license": "CC0",
+  <% } else {%>
+  "private": true,
+  <% } %>
   "main": "main.js",
   "scripts": {
     <% if (env === "browser") { %>

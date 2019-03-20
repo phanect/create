@@ -1,9 +1,9 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/sao-phanective
+    working_directory: ~/<%= name %>
     docker:
-      - image: circleci/node:latest
+      - image: circleci/node:<%= isPersonal ? "latest" : "10-stretch" %>
     steps:
       - checkout
       - restore_cache:
@@ -17,4 +17,4 @@ jobs:
             - ./node_modules
       - run:
           name: test
-          command: yarn test && yarn lint
+          command: yarn test
