@@ -31,9 +31,13 @@ module.exports = {
   async completed() {
     this.gitInit();
 
+    const devDependencies = [
+      "@phanect/eslint-config-phanective"
+    ];
+
     await this.npmInstall();
     await this.npmInstall({
-      packages: [ "@phanect/eslint-config-phanective" ],
+      packages: devDependencies,
       saveDev: true,
     });
 
