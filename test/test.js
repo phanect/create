@@ -8,4 +8,8 @@ test("defaults", async t => {
   const stream = await sao.mock({ generator });
 
   t.snapshot(stream.fileList, "Generated files");
+
+  for (const file of stream.fileList) {
+    t.snapshot(await stream.readFile(file), file);
+  }
 });

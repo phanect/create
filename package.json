@@ -13,14 +13,16 @@
     "template"
   ],
   "scripts": {
-    "test": "ava"
+    "test": "ejslint ./template/* && ava",
+    "lint": "eslint ."
   },
   "dependencies": {
     "superb": "^1.3.0"
   },
   "devDependencies": {
-    "@phanect/eslint-config-phanective": "latest",
-    "ava": "^0.25.0",
+    "@phanect/eslint-plugin": "latest",
+    "ava": "^1.3.0",
+    "ejs-lint": "latest",
     "eslint": "latest",
     "sao": "^1.0.0"
   }
