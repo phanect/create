@@ -1,10 +1,11 @@
 "use strict";
 
 module.exports = {
-  extends: "@phanect/phanective",
+  extends: "plugin:@phanect/<%= (typescript === true) ? 'ts' : 'js' %>",
 
   env: {
     browser: true,
     node: true,
-  }
+  },
+  plugins: [ "@phanect" ],
 };
