@@ -6,7 +6,7 @@
   "author": "Jumpei Ogawa <phanective@gmail.com>",
   <% if (lib === true) { %>
   "license": "CC0",
-  <% else {%>
+  <% } else {%>
   "private": true,
   <% } %>
   "main": "main.js",
