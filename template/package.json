@@ -1,0 +1,17 @@
+{
+  "name": "<%= name %>",
+  "version": "1.0.0",
+  "description": "<%= description %>",
+  "keywords": [],
+  "author": "Jumpei Ogawa <phanective@gmail.com>",
+  "main": "main.js",
+  "scripts": {
+    <% if (env === "browser") { %>
+    "start": "webpack-dev-server --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js",
+    <% } %>
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
