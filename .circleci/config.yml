@@ -35,6 +35,7 @@ jobs:
       name: default
     steps:
       - init
+      - run: echo "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}" > ~/.npmrc
       - run: yarn release
 
 workflows:
