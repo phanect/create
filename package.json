@@ -8,10 +8,6 @@
   },
   "author": "Jumpei Ogawa <phanective@gmail.com> (https://phanective.org)",
   "license": "MIT",
-  "files": [
-    "saofile.js",
-    "template"
-  ],
   "bin": "./bin/cli.js",
   "scripts": {
     "test": "ejslint ./template/* && ava",
