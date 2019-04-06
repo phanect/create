@@ -1,4 +1,3 @@
-const superb = require("superb");
 
 module.exports = {
   prompts() {
@@ -8,11 +7,6 @@ module.exports = {
         message: "What is the name of the new project",
         default: this.outFolder,
         filter: val => val.toLowerCase(),
-      },
-      {
-        name: "description",
-        message: "How would you describe the new project",
-        default: `my ${superb()} project`,
       },
       {
         name: "isPersonal",
