@@ -30,8 +30,24 @@ jobs:
           name: test
           command: yarn test
 
+  release:
+    executor:
+      name: default
+    steps:
+      - init
+      <% if (lib === true) { %>
+      - run: echo "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}" > ~/.npmrc
+      <% } %>
+      - run: yarn release
 workflows:
   version: 2.1
   build-and-release:
     jobs:
       - build
+      - release:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - build
