@@ -12,7 +12,7 @@
   "scripts": {
     "test": "ejslint ./template/* && ava",
     "lint": "eslint .",
-    "release": "npm publish ."
+    "release": "yarn publish --access public --non-interactive"
   },
   "dependencies": {
     "sao": "^1.0.0"
