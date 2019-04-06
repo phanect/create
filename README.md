@@ -4,11 +4,8 @@
 
 ## Usage
 
-Install [SAO](https://github.com/saojs/sao) first.
-
 ```bash
-$ npm i -g sao
-$ sao phanect/sao $MY_PROJECT
+$ npm init @phanect [$PROJECT_DIR]
 ```
 
 ## License
