@@ -1,9 +1,13 @@
-version: 2
-jobs:
-  build:
+version: 2.1
+
+executors:
+  default:
     working_directory: ~/<%= name %>
     docker:
       - image: circleci/node:<%= isPersonal ? "latest" : "10-stretch" %>
+
+commands:
+  init:
     steps:
       - checkout
       - restore_cache:
@@ -15,6 +19,19 @@ jobs:
           key: dependency-cache-{{ checksum "yarn.lock" }}
           paths:
             - ./node_modules
+
+jobs:
+  build:
+    executor:
+      name: default
+    steps:
+      - init
       - run:
           name: test
           command: yarn test
+
+workflows:
+  version: 2.1
+  build-and-release:
+    jobs:
+      - build
