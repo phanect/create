@@ -1,9 +1,9 @@
 {
-  "name": "@phanect/sao",
+  "name": "@phanect/create",
   "version": "2019.1.21",
   "description": "Personal Project Template for @phanect",
   "repository": {
-    "url": "phanect/sao",
+    "url": "phanect/create",
     "type": "git"
   },
   "author": "Jumpei Ogawa <phanective@gmail.com> (https://phanective.org)",
@@ -12,9 +12,11 @@
     "saofile.js",
     "template"
   ],
+  "bin": "./bin/cli.js",
   "scripts": {
     "test": "ejslint ./template/* && ava",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "release": "npm publish ."
   },
   "devDependencies": {
     "@phanect/eslint-plugin": "latest",
