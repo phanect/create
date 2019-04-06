@@ -69,7 +69,7 @@ module.exports = {
     this.gitInit();
 
     const devDependencies = [
-      "@phanect/eslint-config-phanective",
+      "@phanect/eslint-plugin",
     ];
 
     if (this.answers.typescript === true) {
