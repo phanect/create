@@ -76,6 +76,10 @@ module.exports = {
       devDependencies.push("typescript");
     }
 
+    if (this.answers.typescript === true && this.answers.env === "node") {
+      devDependencies.push("@types/node");
+    }
+
     if (this.answers.env === "browser") {
       devDependencies.push(
         "webpack",
