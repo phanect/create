@@ -28,7 +28,7 @@ jobs:
       - init
       - run:
           name: test
-          command: yarn test
+          command: yarn test && yarn lint
 
   release:
     executor:
