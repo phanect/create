@@ -1,4 +1,4 @@
-# phanect/sao
+# phanect/create
 
 @phanect's personal project template
 
