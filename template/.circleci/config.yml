@@ -1,9 +1,13 @@
-version: 2
-jobs:
-  build:
+version: 2.1
+
+executors:
+  default:
     working_directory: ~/<%= name %>
     docker:
       - image: circleci/node:<%= isPersonal ? "latest" : "10-stretch" %>
+
+commands:
+  init:
     steps:
       - checkout
       - restore_cache:
@@ -15,6 +19,35 @@ jobs:
           key: dependency-cache-{{ checksum "yarn.lock" }}
           paths:
             - ./node_modules
+
+jobs:
+  build:
+    executor:
+      name: default
+    steps:
+      - init
       - run:
           name: test
-          command: yarn test
+          command: yarn test && yarn lint
+
+  release:
+    executor:
+      name: default
+    steps:
+      - init
+      <% if (lib === true) { %>
+      - run: echo "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}" > ~/.npmrc
+      <% } %>
+      - run: yarn release
+workflows:
+  version: 2.1
+  build-and-release:
+    jobs:
+      - build
+      - release:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - build
