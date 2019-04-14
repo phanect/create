@@ -1,5 +1,7 @@
 # phanect/create
 
+[![CircleCI](https://circleci.com/gh/phanect/create.svg?style=svg)](https://circleci.com/gh/phanect/create)
+
 @phanect's personal project template
 
 ## Usage
