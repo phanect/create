@@ -80,6 +80,14 @@ module.exports = {
       devDependencies.push("@types/node");
     }
 
+    if (
+      this.answers.typescript === true &&
+      this.answers.env === "node" &&
+      this.answers.lib === true
+    ) {
+      devDependencies.push("ts-node");
+    }
+
     if (this.answers.env === "browser") {
       devDependencies.push(
         "webpack",
