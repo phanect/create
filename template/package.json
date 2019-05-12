@@ -23,7 +23,7 @@
     %>
     "dev": "ts-node main.ts",
     <% } %>
-    "lint": "eslint --ext=.js,.jsx,.ts,.tsx ."
+    "lint": "eslint --ext=.js,.jsx,.ts,.tsx .",
     "release": "yarn publish --access public --non-interactive",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
