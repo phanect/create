@@ -40,6 +40,12 @@ module.exports = {
     {
       type: "add",
       files: "**",
+      filters: {
+        "tsconfig.json": "typescript",
+        "webpack.common.js": "env === 'browser'",
+        "webpack.dev.js": "env === 'browser'",
+        "webpack.prod.js": "env === 'browser'",
+      }
     },
     {
       type: "move",
@@ -53,16 +59,6 @@ module.exports = {
       patterns: {
         "eslintrc.js": ".eslintrc.js",
       },
-    },
-    {
-      type: "remove",
-      files: "tsconfig.json",
-      when: "!typescript",
-    },
-    {
-      type: "remove",
-      files: "webpack.*.js",
-      when: answers => answers.env !== "browser",
     },
   ],
   async completed() {
