@@ -2,8 +2,8 @@
 
 "use strict";
 
-const path = require("path"),
-      sao = require("sao");
+const path = require("path");
+const sao = require("sao");
 
 (async () => {
   await sao({
