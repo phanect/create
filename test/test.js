@@ -116,7 +116,7 @@ const conditions = [
     typescript: false,
     env: "node",
   },
-]
+];
 
 for (const [ i, condition ] of Object.entries(conditions)) {
   test(`Generate files - ${i}`, async t => {

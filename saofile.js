@@ -45,7 +45,7 @@ module.exports = {
         "webpack.common.js": "env === 'browser'",
         "webpack.dev.js": "env === 'browser'",
         "webpack.prod.js": "env === 'browser'",
-      }
+      },
     },
     {
       type: "move",
