@@ -43,6 +43,4 @@ yarn-error.log*
 
 # Other tools
 
-# Ava
-test/snapshots/
 .eslintcache
