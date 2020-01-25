@@ -41,7 +41,12 @@ module.exports = {
       type: "add",
       files: "**",
       filters: {
+        "test/main.test.js": "!typescript",
+        "test/testutils.js": "!typescript",
         "tsconfig.json": "typescript",
+        "test/main.test.ts": "typescript",
+        "test/testutils.ts": "typescript",
+        "test/tsconfig.json": "typescript",
         "webpack.common.js": "env === 'browser'",
         "webpack.dev.js": "env === 'browser'",
         "webpack.prod.js": "env === 'browser'",
@@ -64,12 +69,17 @@ module.exports = {
   async completed() {
     this.gitInit();
 
-    const devDependencies = [
+    let devDependencies = [
       "@phanect/eslint-plugin",
+      "jest",
     ];
 
     if (this.answers.typescript === true) {
-      devDependencies.push("typescript");
+      devDependencies = devDependencies.concat([
+        "@types/jest",
+        "ts-jest",
+        "typescript",
+      ]);
     }
 
     if (this.answers.typescript === true && this.answers.env === "node") {
