@@ -1,8 +1,10 @@
-import path from "path";
-import test from "ava";
-import sao from "sao";
+"use strict";
 
-const generator = path.join(__dirname, "..");
+const { join } = require("path");
+const test = require("ava");
+const sao = require("sao");
+
+const generator = join(__dirname, "..");
 const conditions = [
   {
     name: "foo",
