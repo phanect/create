@@ -32,12 +32,14 @@ npm-debug.log*
 .yarn-integrity
 yarn-debug.log*
 yarn-error.log*
-
-<% if (!lib) { %>
+<% if (lib) { %>
+# Lockfiles are not required for npm packages
+package-lock.json
+yarn.lock
+<% } else { %>
 # yarn is the package manager for this project. Ignore npm's lock file.
 package-lock.json
 <% } %>
-
 # Build tools: Babel & Webpack
 dist/
 
