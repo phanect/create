@@ -27,7 +27,7 @@
     "dev": "ts-node main.ts",
     <% } %>
     "lint": "eslint --ext=.js,.jsx,.ts,.tsx .",
-    "release": "yarn publish --access public --non-interactive",
+    "release": "npm publish --access public --non-interactive",
     "test": "jest --verbose"
   },
   "dependencies": {},

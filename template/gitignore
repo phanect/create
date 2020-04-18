@@ -37,8 +37,8 @@ yarn-error.log*
 package-lock.json
 yarn.lock
 <% } else { %>
-# yarn is the package manager for this project. Ignore npm's lock file.
-package-lock.json
+# npm is the package manager for this project.
+yarn.lock
 <% } %>
 # Build tools: Babel & Webpack
 dist/
