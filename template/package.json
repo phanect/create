@@ -6,9 +6,8 @@
   "keywords": [],
   <% } %>
   "author": "Jumpei Ogawa <%- owner === "personal" ? "<phanective@gmail.com>" : "<jumpei.ogawa@spelldata.co.jp>" %>",
-  <% if (type === "lib") { %>
-  "license": "CC0",
-  <% } else {%>
+  "license": "<%= license %>",
+  <% if (type === "app") { %>
   "private": true,
   <% } %>
   "engines": {

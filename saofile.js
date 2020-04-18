@@ -16,6 +16,12 @@ module.exports = {
         message: "Is this a personal or company project?",
       },
       {
+        name: "license",
+        type: "list",
+        choices: [ "CC0-1.0", "MIT", "Apache-2.0", "UNLICENSED" ],
+        message: "Which license do you apply?",
+      },
+      {
         name: "type",
         type: "list",
         choices: [ "lib", "app" ],
@@ -49,6 +55,9 @@ module.exports = {
       filters: {
         ".circleci/config.yml": "ci === 'circleci'",
         ".github/workflows/actions.yml": "ci === 'github-actions'",
+        "LICENSE-CC0": "license === 'CC0-1.0'",
+        "LICENSE-MIT.ejs": "license === 'MIT'",
+        "LICENSE-APACHE": "license === 'Apache-2.0'",
         "test/main.test.js": "lang === 'javascript'",
         "test/testutils.js": "lang === 'javascript'",
         "tsconfig.json": "lang === 'typescript'",
@@ -62,6 +71,7 @@ module.exports = {
       type: "move",
       patterns: {
         gitignore: ".gitignore",
+        "LICENSE-*": "LICENSE",
       },
     },
   ],
