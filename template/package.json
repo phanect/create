@@ -5,7 +5,7 @@
   <% if (type === "lib") { %>
   "keywords": [],
   <% } %>
-  "author": "Jumpei Ogawa <phanective@gmail.com>",
+  "author": "Jumpei Ogawa <%- owner === "personal" ? "<phanective@gmail.com>" : "<jumpei.ogawa@spelldata.co.jp>" %>",
   <% if (type === "lib") { %>
   "license": "CC0",
   <% } else {%>
