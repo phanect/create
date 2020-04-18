@@ -12,7 +12,7 @@
   "main": "main.js",
   "scripts": {
     <% if (env === "browser") { %>
-    "start": "webpack-dev-server",
+    "dev": "webpack-dev-server",
     "build:stg": "webpack --mode=development",
     "build:prod": "webpack --mode=production",
     <%
