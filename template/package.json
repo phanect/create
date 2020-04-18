@@ -2,7 +2,9 @@
   "name": "<%= name %>",
   "version": "1.0.0",
   "description": "",
+  <% if (type === "lib") { %>
   "keywords": [],
+  <% } %>
   "author": "Jumpei Ogawa <phanective@gmail.com>",
   <% if (type === "lib") { %>
   "license": "CC0",
