@@ -16,5 +16,23 @@ module.exports = {
     splitChunks: {
       chunks: "all",
     },
+    sideEffects: false,
+    usedExports: true,
+    // Do not make symbol names unreadable for performance analysis
+    minimizer: [ new TerserPlugin({
+      terserOptions: {
+        compress: {
+          keep_classnames: true,
+          keep_fargs: true,
+          keep_fnames: true,
+        },
+        mangle: {
+          keep_classnames: true,
+          keep_fnames: true,
+        },
+        keep_classnames: true,
+        keep_fnames: true,
+      },
+    }) ],
   },
 };
