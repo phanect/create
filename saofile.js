@@ -103,6 +103,7 @@ module.exports = {
     if (this.answers.env === "browser") {
       devDependencies.push(
         "webpack",
+        "webpack-cli",
         "webpack-dev-server",
       );
     }
