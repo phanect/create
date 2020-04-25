@@ -1,4 +1,11 @@
 #
+# Project-Specific
+#
+
+# Built files
+dist/
+
+#
 # System
 #
 
@@ -20,14 +27,10 @@ Thumbs.db
 #
 # JavaScript
 #
-# NPM
-.npm/
+
+# NPM / Yarn
 node_modules/
-
-# Node.js
-.node_repl_history
-
-# Yarn
+.npm/
 .yarn-integrity
 <% if (type === "lib") { %>
 # Lockfiles are not required for npm packages
@@ -37,8 +40,6 @@ yarn.lock
 # npm is the package manager for this project.
 yarn.lock
 <% } %>
-# Build tools: Babel & Webpack
-dist/
-
-# Other tools
+# Others
+.node_repl_history
 .eslintcache
