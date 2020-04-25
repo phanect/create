@@ -34,6 +34,12 @@ module.exports = {
         message: "Which environment do you use?",
         default: true,
       },
+      {
+        name: "ci",
+        type: "list",
+        choices: [ "circleci", "github-actions" ],
+        message: "Which CI do you use?",
+      },
     ];
   },
   actions: [
@@ -41,6 +47,8 @@ module.exports = {
       type: "add",
       files: "**",
       filters: {
+        ".circleci/config.yml": "ci === 'circleci'",
+        ".github/workflows/actions.yml": "ci === 'github-actions'",
         "test/main.test.js": "lang === 'javascript'",
         "test/testutils.js": "lang === 'javascript'",
         "tsconfig.json": "lang === 'typescript'",
