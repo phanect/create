@@ -15,8 +15,10 @@
     "node": "14.x",
     "npm": "6.x"
   },
+  "type": "module",
   <% if (type === "lib" || env === "node") { %>
-  "main": "main.js",
+  "main": "main.cjs",
+  "module": "main.js",
   <% } %>
   "scripts": {
     <% if (env === "browser") { %>

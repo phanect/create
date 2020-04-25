@@ -1,6 +1,6 @@
 "use strict";
 <% if (lang === "typescript") { %>
-const { join } = require("path");
+import { join } from "path";
 <% } %>
 module.exports = {
   extends: [ "plugin:@phanect/jest" ],

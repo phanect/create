@@ -64,13 +64,6 @@ module.exports = {
         gitignore: ".gitignore",
       },
     },
-    // Not ESLint to use the template file as real .eslintrc.* file
-    {
-      type: "move",
-      patterns: {
-        "eslintrc.js": ".eslintrc.js",
-      },
-    },
   ],
   async completed() {
     this.gitInit();
