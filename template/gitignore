@@ -23,15 +23,12 @@ Thumbs.db
 # NPM
 .npm/
 node_modules/
-npm-debug.log*
 
 # Node.js
 .node_repl_history
 
 # Yarn
 .yarn-integrity
-yarn-debug.log*
-yarn-error.log*
 <% if (type === "lib") { %>
 # Lockfiles are not required for npm packages
 package-lock.json
@@ -44,10 +41,4 @@ yarn.lock
 dist/
 
 # Other tools
-
-# Ava
-test/snapshots/
 .eslintcache
-
-# React Native
-.expo/
