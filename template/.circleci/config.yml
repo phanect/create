@@ -4,7 +4,7 @@ executors:
   default:
     working_directory: ~/<%= name %>
     docker:
-      - image: circleci/node:<%= isPersonal ? "latest" : "10-stretch" %>
+      - image: circleci/node:<%= owner === "personal" ? "latest" : "10-stretch" %>
 
 commands:
   init:
@@ -35,7 +35,7 @@ jobs:
       name: default
     steps:
       - init
-      <% if (lib === true) { %>
+      <% if (type === "lib") { %>
       - run: echo "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}" > ~/.npmrc
       <% } %>
       - run: yarn release

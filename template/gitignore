@@ -32,7 +32,7 @@ npm-debug.log*
 .yarn-integrity
 yarn-debug.log*
 yarn-error.log*
-<% if (lib) { %>
+<% if (type === "lib") { %>
 # Lockfiles are not required for npm packages
 package-lock.json
 yarn.lock

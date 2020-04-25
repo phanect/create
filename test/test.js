@@ -6,18 +6,18 @@ const sao = require("sao");
 
 const generator = join(__dirname, "..");
 
-for (const isPersonal of [ true, false ]) {
-  for (const lib of [ true, false ]) {
-    for (const typescript of [ true, false ]) {
+for (const owner of [ "personal", "company" ]) {
+  for (const type of [ "lib", "app" ]) {
+    for (const lang of [ "javascript", "typescript" ]) {
       for (const env of [ "browser", "node" ]) {
         test(
-          `Generate files - ${isPersonal ? "personal" : "company"} ${lib ? "library" : "app"} for ${env} written in ${typescript ? "TypeScript" : "JavaScript"}`,
+          `Generate files - ${owner} ${type} for ${env} written in ${lang}`,
           async t => {
             const stream = await sao.mock({ generator }, {
               name: "foo",
-              isPersonal,
-              lib,
-              typescript,
+              owner,
+              type,
+              lang,
               env,
             });
 
