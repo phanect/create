@@ -40,7 +40,9 @@
     "build": "tsc",
     <% } %>
     "lint": "eslint --ext=.js,.jsx,.ts,.tsx .",
+    <% if (type === "lib") { %>
     "release": "npm publish --access public --non-interactive",
+    <% } %>
     "test": "jest --verbose"
   },
   "dependencies": {},
