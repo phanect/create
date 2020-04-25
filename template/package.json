@@ -11,7 +11,9 @@
   <% } else {%>
   "private": true,
   <% } %>
+  <% if (type === "lib" || env === "node") { %>
   "main": "main.js",
+  <% } %>
   "scripts": {
     <% if (env === "browser") { %>
     "dev": "webpack-dev-server",
