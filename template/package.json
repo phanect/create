@@ -19,12 +19,25 @@
     "build:prod": "webpack --mode=production",
     <%
     } else if (
+      lang === "javascript" &&
+      env === "node" &&
+      type === "app"
+    ) {
+    %>
+    "dev": "node main.ts",
+    <%
+    } else if (
       lang === "typescript" &&
       env === "node" &&
-      type === "lib"
+      type === "app"
     ) {
     %>
     "dev": "ts-node main.ts",
+    <%
+    }
+    if (env === "node" && lang === "typescript") {
+    %>
+    "build": "tsc",
     <% } %>
     "lint": "eslint --ext=.js,.jsx,.ts,.tsx .",
     "release": "npm publish --access public --non-interactive",
