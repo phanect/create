@@ -10,6 +10,7 @@
   "license": "MIT",
   "bin": "./bin/cli.js",
   "scripts": {
+    "gen": "node ./bin/cli.js ./gen",
     "test": "ejslint ./template/* && ava",
     "lint": "eslint .",
     "release": "yarn publish --access public --non-interactive"
