@@ -5,7 +5,7 @@ module.exports = {
     return [
       {
         name: "name",
-        message: "What is the name of the new project",
+        message: "What is the name of the new project?",
         default: this.outFolder,
         filter: val => val.toLowerCase(),
       },
@@ -31,7 +31,7 @@ module.exports = {
         name: "env",
         type: "list",
         choices: [ "browser", "node" ],
-        message: "Environment",
+        message: "Which environment do you use?",
         default: true,
       },
     ];
