@@ -3,7 +3,7 @@
 module.exports = {
   clearMocks: true,
   testEnvironment: "node",
-  <% if (typescript === true) { %>transform: {
+  <% if (lang === "typescript") { %>transform: {
     "^.+\\.ts$": "ts-jest",
   },<% } %>
 };

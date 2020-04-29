@@ -10,6 +10,7 @@
   "license": "MIT",
   "bin": "./bin/cli.js",
   "scripts": {
+    "gen": "node ./bin/cli.js ./gen",
     "test": "ejslint ./template/* && ava",
     "lint": "eslint .",
     "release": "yarn publish --access public --non-interactive"
@@ -19,7 +20,7 @@
   },
   "devDependencies": {
     "@phanect/eslint-plugin": "latest",
-    "ava": "^3.0.0",
+    "ava": "^3.8.0",
     "ejs-lint": "latest",
     "eslint": "latest"
   },

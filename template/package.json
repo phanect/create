@@ -4,7 +4,7 @@
   "description": "",
   "keywords": [],
   "author": "Jumpei Ogawa <phanective@gmail.com>",
-  <% if (lib === true) { %>
+  <% if (type === "lib") { %>
   "license": "CC0",
   <% } else {%>
   "private": true,
@@ -16,9 +16,9 @@
     "build": "webpack --config webpack.prod.js",
     <%
     } else if (
-      typescript === true &&
+      lang === "typescript" &&
       env === "node" &&
-      lib === true
+      type === "lib"
     ) {
     %>
     "dev": "ts-node main.ts",

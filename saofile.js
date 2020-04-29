@@ -5,33 +5,33 @@ module.exports = {
     return [
       {
         name: "name",
-        message: "What is the name of the new project",
+        message: "What is the name of the new project?",
         default: this.outFolder,
         filter: val => val.toLowerCase(),
       },
       {
-        name: "isPersonal",
-        type: "confirm",
-        message: "Is this a personal project? If this is company project, answer No.",
-        default: true,
+        name: "owner",
+        type: "list",
+        choices: [ "personal", "company" ],
+        message: "Is this a personal or company project?",
       },
       {
-        name: "lib",
-        type: "confirm",
-        message: "Is this a library? If this is an app, answer No.",
-        default: true,
+        name: "type",
+        type: "list",
+        choices: [ "lib", "app" ],
+        message: "Is this a library or an app?",
       },
       {
-        name: "typescript",
-        type: "confirm",
-        message: "Use TypeScript?",
-        default: true,
+        name: "lang",
+        type: "list",
+        choices: [ "javascript", "typescript" ],
+        message: "Which language do you use?",
       },
       {
         name: "env",
         type: "list",
         choices: [ "browser", "node" ],
-        message: "Environment",
+        message: "Which environment do you use?",
         default: true,
       },
     ];
@@ -41,12 +41,12 @@ module.exports = {
       type: "add",
       files: "**",
       filters: {
-        "test/main.test.js": "!typescript",
-        "test/testutils.js": "!typescript",
-        "tsconfig.json": "typescript",
-        "test/main.test.ts": "typescript",
-        "test/testutils.ts": "typescript",
-        "test/tsconfig.json": "typescript",
+        "test/main.test.js": "lang === 'javascript'",
+        "test/testutils.js": "lang === 'javascript'",
+        "tsconfig.json": "lang === 'typescript'",
+        "test/main.test.ts": "lang === 'typescript'",
+        "test/testutils.ts": "lang === 'typescript'",
+        "test/tsconfig.json": "lang === 'typescript'",
         "webpack.common.js": "env === 'browser'",
         "webpack.dev.js": "env === 'browser'",
         "webpack.prod.js": "env === 'browser'",
@@ -74,7 +74,7 @@ module.exports = {
       "jest",
     ];
 
-    if (this.answers.typescript === true) {
+    if (this.answers.lang === "typescript") {
       devDependencies = devDependencies.concat([
         "@types/jest",
         "ts-jest",
@@ -82,14 +82,14 @@ module.exports = {
       ]);
     }
 
-    if (this.answers.typescript === true && this.answers.env === "node") {
+    if (this.answers.lang === "typescript" && this.answers.env === "node") {
       devDependencies.push("@types/node");
     }
 
     if (
-      this.answers.typescript === true &&
+      this.answers.lang === "typescript" &&
       this.answers.env === "node" &&
-      this.answers.lib === true
+      this.answers.type === "lib"
     ) {
       devDependencies.push("ts-node");
     }
