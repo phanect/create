@@ -10,15 +10,17 @@ commands:
   init:
     steps:
       - checkout
+<% if (type === "lib") { -%>
       - restore_cache:
-          key: dependency-cache-{{ checksum "yarn.lock" }}
-      - run:
-          name: install dependences
-          command: yarn install
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run: npm install
       - save_cache:
-          key: dependency-cache-{{ checksum "yarn.lock" }}
+          key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
+<% } else if (type === "app") { -%>
+      - run: npm ci
+<% } -%>
 
 jobs:
   build:
@@ -28,7 +30,14 @@ jobs:
       - init
       - run:
           name: test
-          command: yarn test && yarn lint
+          command: npm test && npm run lint
+
+  stage:
+    executor:
+      name: default
+    steps:
+      - init
+      - run: npm run stage
 
   release:
     executor:
@@ -38,16 +47,31 @@ jobs:
       <% if (type === "lib") { %>
       - run: echo "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}" > ~/.npmrc
       <% } %>
-      - run: yarn release
+      - run: npm run release
+
 workflows:
   version: 2.1
   build-and-release:
     jobs:
-      - build
-      - release:
+      # Run when any branches & tags pushed
+      - build:
+          filters:
+            tags:
+              only: /.*/
+      - stage:
           filters:
             branches:
               only:
                 - master
+          requires:
+            - build
+      - release:
+          filters:
+            tags:
+              only: /^v.*/
+            # By default, release runs on push to any branches.
+            # To avoid running release, it is required to ignore all branches here.
+            branches:
+              ignore: /.*/
           requires:
             - build

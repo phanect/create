@@ -16,6 +16,12 @@ module.exports = {
         message: "Is this a personal or company project?",
       },
       {
+        name: "license",
+        type: "list",
+        choices: [ "CC0-1.0", "MIT", "Apache-2.0", "UNLICENSED" ],
+        message: "Which license do you apply?",
+      },
+      {
         name: "type",
         type: "list",
         choices: [ "lib", "app" ],
@@ -34,6 +40,12 @@ module.exports = {
         message: "Which environment do you use?",
         default: true,
       },
+      {
+        name: "ci",
+        type: "list",
+        choices: [ "circleci", "github-actions" ],
+        message: "Which CI do you use?",
+      },
     ];
   },
   actions: [
@@ -41,28 +53,25 @@ module.exports = {
       type: "add",
       files: "**",
       filters: {
+        ".circleci/config.yml": "ci === 'circleci'",
+        ".github/workflows/actions.yml": "ci === 'github-actions'",
+        "LICENSE-CC0": "license === 'CC0-1.0'",
+        "LICENSE-MIT.ejs": "license === 'MIT'",
+        "LICENSE-APACHE": "license === 'Apache-2.0'",
         "test/main.test.js": "lang === 'javascript'",
         "test/testutils.js": "lang === 'javascript'",
         "tsconfig.json": "lang === 'typescript'",
         "test/main.test.ts": "lang === 'typescript'",
         "test/testutils.ts": "lang === 'typescript'",
         "test/tsconfig.json": "lang === 'typescript'",
-        "webpack.common.js": "env === 'browser'",
-        "webpack.dev.js": "env === 'browser'",
-        "webpack.prod.js": "env === 'browser'",
+        "webpack.config.js": "env === 'browser'",
       },
     },
     {
       type: "move",
       patterns: {
         gitignore: ".gitignore",
-      },
-    },
-    // Not ESLint to use the template file as real .eslintrc.* file
-    {
-      type: "move",
-      patterns: {
-        "eslintrc.js": ".eslintrc.js",
+        "LICENSE-*": "LICENSE",
       },
     },
   ],
@@ -94,9 +103,14 @@ module.exports = {
       devDependencies.push("ts-node");
     }
 
+    if (this.answers.lang === "typescript" && this.answers.env === "browser") {
+      devDependencies.push("ts-loader");
+    }
+
     if (this.answers.env === "browser") {
       devDependencies.push(
         "webpack",
+        "webpack-cli",
         "webpack-dev-server",
       );
     }

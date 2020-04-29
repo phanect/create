@@ -1,6 +1,6 @@
 "use strict";
 
-module.exports = {
+export {
   clearMocks: true,
   testEnvironment: "node",
   <% if (lang === "typescript") { %>transform: {
