@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "@phanect/eslint-plugin": "latest",
-    "ava": "^3.0.0",
+    "ava": "^3.8.0",
     "ejs-lint": "latest",
     "eslint": "latest"
   },
