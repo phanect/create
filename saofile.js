@@ -103,6 +103,10 @@ module.exports = {
       devDependencies.push("ts-node");
     }
 
+    if (this.answers.lang === "typescript" && this.answers.env === "browser") {
+      devDependencies.push("ts-loader");
+    }
+
     if (this.answers.env === "browser") {
       devDependencies.push(
         "webpack",

@@ -12,6 +12,9 @@ module.exports = {
     filename: "[name].js",
     path: path.resolve(__dirname, "dist"),
   },
+  resolve: {
+    extensions: [ ".js", ".jsx" <%= lang === "typescript" ? ', ".ts", ".tsx"' : '' %> ],
+  }
   optimization: {
     splitChunks: {
       chunks: "all",
@@ -35,4 +38,15 @@ module.exports = {
       },
     }) ],
   },
+  <% if (lang === "typescript") { %>
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        use: "ts-loader",
+        exclude: /node_modules/
+      }
+    ]
+  }
+  <% } %>
 };
