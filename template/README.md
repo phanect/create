@@ -1,5 +1,7 @@
 # <%= name %>
 
+<% if (license !== "UNLICENSED") { -%>
 ## License
 
-MIT &copy; Jumpei Ogawa
+<%= license %>
+<% } -%>
