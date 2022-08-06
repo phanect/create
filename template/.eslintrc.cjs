@@ -4,7 +4,7 @@ import { join } from "path";
 <% } %>
 module.exports = {
   root: true,
-  extends: "plugin:@phanect/<%= lang === 'typescript' ? 'ts' : 'js' %>",
+  extends: "phanective<%= env === 'node' ? '/node' : '' %>",
 
   env: {
     browser: true,
@@ -14,5 +14,4 @@ module.exports = {
     sourceType: "module",
     project: join(__dirname, "./tsconfig.json"),
   },<% } %>
-  plugins: [ "@phanect" ],
 };
