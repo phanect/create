@@ -9,9 +9,11 @@ module.exports = {
   env: {
     browser: true,
     node: true,
-  },<% if (lang === "typescript") { %>
+  },
   parserOptions: {
     sourceType: "module",
+<% if (lang === "typescript") { -%>
     project: join(__dirname, "./tsconfig.json"),
-  },<% } %>
+<% } -%>
+  },
 };
