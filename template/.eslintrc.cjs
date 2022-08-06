@@ -16,4 +16,13 @@ module.exports = {
     project: join(__dirname, "./tsconfig.json"),
 <% } -%>
   },
+  overrides: [{
+    files: [ "**/*.test.js", "**/*.test.cjs", "**/*.test.mjs" ],
+    extends: "phanective/jest",
+<% if (lang === "typescript") { -%>
+    parserOptions: {
+      project: join(__dirname, "./test/tsconfig.json"),
+    },
+<% } -%>
+  }],
 };
