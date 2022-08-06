@@ -13,7 +13,7 @@
     "gen": "node ./bin/cli.js ./gen",
     "test": "ejslint ./template/* && ava",
     "lint": "eslint .",
-    "release": "yarn publish --access public --non-interactive"
+    "release": "npm publish --access public --non-interactive"
   },
   "dependencies": {
     "sao": "^1.0.0"
