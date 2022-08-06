@@ -1,7 +1,7 @@
 "use strict";
 
 const { join } = require("path");
-const test = require("ava");
+const test = require("ava"); // eslint-disable-line node/no-missing-require, import/no-unresolved
 const sao = require("sao");
 
 const generator = join(__dirname, "..");
