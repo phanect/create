@@ -2,10 +2,9 @@
 
 module.exports = {
   root: true,
-  extends: "plugin:@phanect/js",
+  extends: "phanective/node",
 
   env: {
     node: true,
   },
-  plugins: [ "@phanect" ],
 };

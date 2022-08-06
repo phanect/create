@@ -19,7 +19,7 @@
     "sao": "^1.0.0"
   },
   "devDependencies": {
-    "@phanect/eslint-plugin": "latest",
+    "eslint-config-phanective": "latest",
     "ava": "^3.8.0",
     "ejs-lint": "latest",
     "eslint": "latest"
