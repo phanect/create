@@ -12,7 +12,7 @@
   "scripts": {
     "gen": "node ./bin/cli.js ./gen",
     "test": "ejslint ./template/* && ava",
-    "lint": "eslint .",
+    "lint": "eslint --ext='.js,.ts,.json' .",
     "release": "npm publish --access public --non-interactive"
   },
   "dependencies": {
