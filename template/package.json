@@ -10,10 +10,6 @@
   <% if (type === "app") { %>
   "private": true,
   <% } %>
-  "engines": {
-    "node": "14.x",
-    "npm": "6.x"
-  },
   "type": "module",
   <% if (type === "lib" || env === "node") { %>
   "main": "main.cjs",
@@ -53,5 +49,9 @@
     "test": "jest --verbose"
   },
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {},
+  "engines": {
+    "node": "<%= (type === 'lib') ? '>=14.x' : '18.x' %>",
+    "npm": "<%= (type === 'lib') ? '>=7.x' : '>=8.x' %>"
+  }
 }
