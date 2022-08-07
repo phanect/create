@@ -5,7 +5,7 @@
   <% if (type === "lib") { %>
   "keywords": [],
   <% } %>
-  "author": "Jumpei Ogawa <%- owner === "personal" ? "<phanective@gmail.com>" : "<jumpei.ogawa@spelldata.co.jp>" %>",
+  "author": "<%- owner === 'personal' ? 'Jumpei Ogawa (https://phanective.org)' : 'bellFace, Inc. (https://bell-face.com)' %>",
   "license": "<%= license %>",
   <% if (type === "app") { %>
   "private": true,
