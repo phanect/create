@@ -5,15 +5,11 @@
   <% if (type === "lib") { %>
   "keywords": [],
   <% } %>
-  "author": "Jumpei Ogawa <%- owner === "personal" ? "<phanective@gmail.com>" : "<jumpei.ogawa@spelldata.co.jp>" %>",
+  "author": "<%- owner === 'personal' ? 'Jumpei Ogawa (https://phanective.org)' : 'bellFace, Inc. (https://bell-face.com)' %>",
   "license": "<%= license %>",
   <% if (type === "app") { %>
   "private": true,
   <% } %>
-  "engines": {
-    "node": "14.x",
-    "npm": "6.x"
-  },
   "type": "module",
   <% if (type === "lib" || env === "node") { %>
   "main": "main.cjs",
@@ -46,12 +42,16 @@
     %>
     "build": "tsc",
     <% } %>
-    "lint": "eslint --ext=.js,.jsx,.ts,.tsx .",
+    "lint": "eslint --ext=.js,.jsx,.ts,.tsx,.vue,.json .",
     <% if (type === "lib") { %>
     "release": "npm publish --access public --non-interactive",
     <% } %>
     "test": "jest --verbose"
   },
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {},
+  "engines": {
+    "node": "<%= (type === 'lib') ? '>=14.x' : '18.x' %>",
+    "npm": "<%= (type === 'lib') ? '>=7.x' : '>=8.x' %>"
+  }
 }
