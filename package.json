@@ -1,6 +1,6 @@
 {
   "name": "@phanect/create",
-  "version": "2020.5.1",
+  "version": "2022.8.7",
   "description": "Personal Project Template for @phanect",
   "repository": {
     "url": "phanect/create",
@@ -12,15 +12,16 @@
   "scripts": {
     "gen": "node ./bin/cli.js ./gen",
     "test": "ejslint ./template/* && ava",
-    "lint": "eslint .",
-    "release": "yarn publish --access public --non-interactive"
+    "snapshot": "ava --update-snapshots",
+    "lint": "eslint --ext='.js,.ts,.json' .",
+    "release": "npm publish --access public --non-interactive"
   },
   "dependencies": {
     "sao": "^1.0.0"
   },
   "devDependencies": {
-    "@phanect/eslint-plugin": "latest",
-    "ava": "^3.8.0",
+    "eslint-config-phanective": "latest",
+    "ava": "^4.3.1",
     "ejs-lint": "latest",
     "eslint": "latest"
   },

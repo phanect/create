@@ -17,12 +17,11 @@ on:
       - published
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version:
-          - 14
           - 16
           - 18
     steps:
@@ -31,20 +30,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-<% if (type === "app") { -%>
-          cache: npm
-<% } -%>
-<% if (type === "lib") { -%>
       - run: npm install
-<% } else if (type === "app") { -%>
-      - run: npm ci
-<% } -%>
-      - run: npm run build
       - run: npm test
       - run: npm run lint
 
   publish:
-    needs: build
+    needs: test
     if: github.event_name == 'release'
     runs-on: ubuntu-latest
     steps:
@@ -52,15 +43,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-<% if (type === "app") { -%>
-          cache: npm
-<% } -%>
-<% if (type === "lib") { -%>
       - run: npm install
-<% } else if (type === "app") { -%>
-      - run: npm ci
-<% } -%>
-      - run: npm run build
       - run: npm run release
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}

@@ -22,7 +22,7 @@ pids
 # File manager configs
 .directory
 Thumbs.db
-*.DS_Store
+.DS_Store
 
 #
 # JavaScript
