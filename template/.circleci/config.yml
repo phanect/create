@@ -1,52 +1,39 @@
 version: 2.1
 
-executors:
-  default:
-    working_directory: ~/<%= name %>
-    docker:
-      - image: circleci/node:<%= owner === "personal" ? "latest" : "10-stretch" %>
-
-commands:
-  init:
-    steps:
-      - checkout
-<% if (type === "lib") { -%>
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-      - run: npm install
-      - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-          paths:
-            - ./node_modules
-<% } else if (type === "app") { -%>
-      - run: npm ci
-<% } -%>
+orbs:
+  node: circleci/node@5.0.2
 
 jobs:
-  build:
+  test:
+    resource_class: large
     executor:
-      name: default
+      name: node/default
+      tag: lts
     steps:
-      - init
-      - run:
-          name: test
-          command: npm test && npm run lint
+      - checkout
+      - node/install:
+          node-version: 16
 
-  stage:
-    executor:
-      name: default
-    steps:
-      - init
-      - run: npm run stage
+      - run: npm <%= (type === "lib") ? "install" : "ci" %>
+      - run: npm run build
+      - run: npm test
+      - run: npm run lint
 
   release:
+    resource_class: large
     executor:
-      name: default
+      name: node/default
+      tag: lts
     steps:
-      - init
-      <% if (type === "lib") { %>
+      - checkout
+      - node/install:
+          node-version: 16
+
+      - run: npm <%= (type === "lib") ? "install" : "ci" %>
+      - run: npm run build
+<% if (type === "lib") { -%>
       - run: echo "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}" > ~/.npmrc
-      <% } %>
+<% } -%>
       - run: npm run release
 
 workflows:
@@ -54,17 +41,10 @@ workflows:
   build-and-release:
     jobs:
       # Run when any branches & tags pushed
-      - build:
+      - test:
           filters:
             tags:
               only: /.*/
-      - stage:
-          filters:
-            branches:
-              only:
-                - main
-          requires:
-            - build
       - release:
           filters:
             tags:
@@ -74,4 +54,4 @@ workflows:
             branches:
               ignore: /.*/
           requires:
-            - build
+            - test
