@@ -22,15 +22,18 @@ jobs:
     strategy:
       matrix:
         node-version:
-          - 10.x
-          - 12.x
-          - 14.x
+          - 14
+          - 16
+          - 18
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+<% if (type === "app") { -%>
+          cache: npm
+<% } -%>
 <% if (type === "lib") { -%>
       - run: npm install
 <% } else if (type === "app") { -%>
@@ -45,11 +48,13 @@ jobs:
     if: github.event_name == 'release'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: 14.x
-          registry-url: https://registry.npmjs.org/
+          node-version: 18
+<% if (type === "app") { -%>
+          cache: npm
+<% } -%>
 <% if (type === "lib") { -%>
       - run: npm install
 <% } else if (type === "app") { -%>
