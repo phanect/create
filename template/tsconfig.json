@@ -2,14 +2,15 @@
   "compilerOptions": {
     "alwaysStrict": true,
     "declaration": false,
-    "module": "commonjs",
+    "esModuleInterop": true,
+    "module": "ES2022",
+    "target": "ESNext",
     "moduleResolution": "node",
     "lib": [
       "dom",
       "esnext"
     ],
     "newLine": "lf",
-    "target": "es2017",
     "outDir": "./dist",
     "preserveConstEnums": true,
     "removeComments": true,

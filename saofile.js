@@ -79,6 +79,7 @@ module.exports = {
     this.gitInit();
 
     let devDependencies = [
+      "eslint",
       "eslint-config-phanective",
       "jest",
     ];
@@ -93,6 +94,7 @@ module.exports = {
 
     if (this.answers.lang === "typescript" && this.answers.env === "node") {
       devDependencies.push("@types/node");
+      devDependencies.push("ts-node");
     }
 
     if (
