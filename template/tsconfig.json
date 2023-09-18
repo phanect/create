@@ -1,9 +1,8 @@
 {
   "compilerOptions": {
-    "alwaysStrict": true,
     "declaration": false,
     "esModuleInterop": true,
-    "module": "ES2022",
+    "module": "ESNext",
     "target": "ESNext",
     "moduleResolution": "node",
     "lib": [
@@ -14,11 +13,8 @@
     "outDir": "./dist",
     "preserveConstEnums": true,
     "removeComments": true,
-    "typeRoots": [
-      "./node_modules/@types"
-    ],
     "strict": true,
-    "strictNullChecks": false
+    "resolveJsonModule": true
   },
   "include": [
     "*.ts"
