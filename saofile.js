@@ -74,6 +74,13 @@ module.exports = {
         "LICENSE-*": "LICENSE",
       },
     },
+    // Prevent ESLint to use template/.eslintrc.cjs as a real config for ESLint
+    {
+      type: "move",
+      patterns: {
+        "eslintrc.cjs": ".eslintrc.cjs",
+      },
+    },
   ],
   async completed() {
     this.gitInit();
