@@ -12,7 +12,7 @@ jobs:
     steps:
       - checkout
       - node/install:
-          node-version: 16
+          node-version: 20
 
       - run: npm <%= (type === "lib") ? "install" : "ci" %>
       - run: npm run build
@@ -27,7 +27,7 @@ jobs:
     steps:
       - checkout
       - node/install:
-          node-version: 16
+          node-version: 20
 
       - run: npm <%= (type === "lib") ? "install" : "ci" %>
       - run: npm run build
