@@ -12,8 +12,18 @@
   <% } %>
   "type": "module",
   <% if (type === "lib" || env === "node") { %>
-  "main": "main.cjs",
-  "module": "main.js",
+  "main": "./dist/main.cjs",
+  "module": "./dist/main.js",
+  "types": "./dist/types/main.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "default": "./dist/main.mjs",
+        "types": "./dist/types/main.d.ts"
+      },
+      "require": "./dist/main.cjs"
+    }
+  },
   <% } %>
   "scripts": {
     <% if (env === "browser") { %>
