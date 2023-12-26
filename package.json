@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "eslint-config-phanective": "latest",
-    "ava": "^5.2.0",
+    "ava": "^6.0.1",
     "ejs-lint": "latest",
     "eslint": "latest"
   },
