@@ -6,7 +6,7 @@
     "url": "phanect/create",
     "type": "git"
   },
-  "author": "Jumpei Ogawa <phanective@gmail.com> (https://phanective.org)",
+  "author": "Jumpei Ogawa (https://phanective.org)",
   "license": "MIT",
   "bin": "./bin/cli.js",
   "scripts": {
