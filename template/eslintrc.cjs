@@ -1,6 +1,6 @@
 "use strict";
 <% if (lang === "typescript") { %>
-import { join } from "path";
+const { join } = require("path");
 <% } %>
 module.exports = {
   root: true,
