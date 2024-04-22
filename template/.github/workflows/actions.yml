@@ -17,7 +17,7 @@ on:
       - published
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -41,10 +41,29 @@ jobs:
 <% } -%>
       - run: npm run build
       - run: npm test
+
+  lint:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version:
+          - 22
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+<% if (type === "app") { -%>
+          cache: npm
+<% } -%>
+      - run: npm <% type === "app" ? "ci" : "install" %>
       - run: npm run lint
 
   publish:
-    needs: build
+    needs:
+      - test
+      - lint
     if: github.event_name == 'release'
     runs-on: ubuntu-latest
     steps:
