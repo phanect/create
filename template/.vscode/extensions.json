@@ -1,0 +1,20 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "EditorConfig.EditorConfig"
+
+    // "astro-build.astro-vscode", // Astro
+    // "svelte.svelte-vscode", // Svelte
+    // "Vue.volar", // Vue
+    //
+    // "Prisma.prisma", // Prisma ORM
+    // "TheNuProjectContributors.vscode-nushell-lang", // NuShell
+    //
+    // "csstools.postcss", // PostCSS
+    // "bradlc.vscode-tailwindcss", // Tailwind CSS
+    // "styled-components.vscode-styled-components", // Styled Components
+    //
+    // "mrmlnc.vscode-json5", // JSON5
+    // "tamasfe.even-better-toml", // Toml
+  ]
+}
