@@ -56,7 +56,6 @@ module.exports = {
         "test/main.test.ts": "lang === 'typescript'",
         "test/testutils.ts": "lang === 'typescript'",
         "test/tsconfig.json": "lang === 'typescript'",
-        "webpack.config.js": "env === 'browser'",
       },
     },
     {
