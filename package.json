@@ -21,10 +21,12 @@
     "inquirer": "^9.2.19"
   },
   "devDependencies": {
+    "@types/node": "^20.12.7",
     "ava": "^6.0.1",
     "ejs-lint": "latest",
     "eslint": "^8.56.0",
-    "eslint-config-phanective": "latest"
+    "eslint-config-phanective": "latest",
+    "typescript": "^5.4.5"
   },
   "ava": {
     "files": [
