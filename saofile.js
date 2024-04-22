@@ -56,7 +56,7 @@ module.exports = {
         "test/main.test.ts": "lang === 'typescript'",
         "test/testutils.ts": "lang === 'typescript'",
         "test/tsconfig.json": "lang === 'typescript'",
-        "webpack.config.js": "env === 'browser'",
+        "vite.config.ts": "env === 'browser'",
       },
     },
     {
@@ -104,16 +104,12 @@ module.exports = {
       devDependencies.push("esno");
     }
 
-    if (this.answers.lang === "typescript" && this.answers.env === "browser") {
-      devDependencies.push("ts-loader");
-    }
-
     if (this.answers.env === "browser") {
       devDependencies.push(
-        "webpack",
-        "webpack-cli",
-        "webpack-dev-server",
+        "vite",
       );
+    } else {
+      devDependencies.push("tsup");
     }
 
     await this.npmInstall({
