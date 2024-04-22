@@ -20,10 +20,10 @@
     "sao": "^1.0.0"
   },
   "devDependencies": {
-    "eslint-config-phanective": "latest",
     "ava": "^6.0.1",
     "ejs-lint": "latest",
-    "eslint": "^8.56.0"
+    "eslint": "^8.56.0",
+    "eslint-config-phanective": "latest"
   },
   "ava": {
     "files": [
