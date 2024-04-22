@@ -93,7 +93,7 @@ module.exports = {
 
     if (this.answers.lang === "typescript" && this.answers.env === "node") {
       devDependencies.push("@types/node");
-      devDependencies.push("ts-node");
+      devDependencies.push("esno");
     }
 
     if (
@@ -101,7 +101,7 @@ module.exports = {
       this.answers.env === "node" &&
       this.answers.type === "lib"
     ) {
-      devDependencies.push("ts-node");
+      devDependencies.push("esno");
     }
 
     if (this.answers.lang === "typescript" && this.answers.env === "browser") {
