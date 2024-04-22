@@ -8,6 +8,7 @@
   },
   "author": "Jumpei Ogawa (https://phanective.org)",
   "license": "MIT",
+  "type": "module",
   "bin": "./bin/cli.js",
   "scripts": {
     "gen": "node ./bin/cli.js ./gen",
