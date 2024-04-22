@@ -11,21 +11,25 @@
   "type": "module",
   "bin": "./bin/cli.js",
   "scripts": {
-    "gen": "node ./bin/cli.js ./gen",
+    "dev": "esno ./src/cli.ts new-proj",
     "test": "ejslint ./template/* && ava",
     "snapshot": "ava --update-snapshots",
     "lint": "eslint --ext='.js,.ts,.json' .",
     "release": "npm publish --access public --non-interactive"
   },
   "dependencies": {
+    "@inquirer/input": "^2.1.5",
+    "@inquirer/select": "^2.3.1",
     "inquirer": "^9.2.19"
   },
   "devDependencies": {
+    "@types/inquirer": "^9.0.7",
     "@types/node": "^20.12.7",
     "ava": "^6.0.1",
     "ejs-lint": "latest",
     "eslint": "^8.56.0",
     "eslint-config-phanective": "latest",
+    "esno": "^4.7.0",
     "typescript": "^5.4.5"
   },
   "ava": {
