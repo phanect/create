@@ -27,9 +27,7 @@
   <% } %>
   "scripts": {
     <% if (env === "browser") { %>
-    "dev": "webpack-dev-server",
-    "build:stg": "webpack --mode=development",
-    "build:prod": "webpack --mode=production",
+    "dev": "vite",
     <%
     } else if (
       lang === "javascript" &&
@@ -46,12 +44,8 @@
     ) {
     %>
     "dev": "esno main.ts",
-    <%
-    }
-    if (env === "node" && lang === "typescript") {
-    %>
-    "build": "tsc",
     <% } %>
+    "build": "vite build",
     "lint": "eslint --ext=.js,.jsx,.ts,.tsx,.vue,.json .",
     <% if (type === "lib") { %>
     "release": "npm publish --access public --non-interactive",
