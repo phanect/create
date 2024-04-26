@@ -9,9 +9,9 @@
   "author": "Jumpei Ogawa (https://phanective.org)",
   "license": "MIT",
   "type": "module",
-  "bin": "./bin/cli.js",
+  "bin": "./bin/cli.sh",
   "scripts": {
-    "gen": "node ./bin/cli.js ./gen",
+    "dev": "esno ./src/cli.ts new-proj",
     "test": "ejslint ./template/* && ava",
     "snapshot": "ava --update-snapshots",
     "lint": "eslint --ext='.js,.ts,.json' .",
@@ -26,6 +26,7 @@
     "ejs-lint": "latest",
     "eslint": "^8.56.0",
     "eslint-config-phanective": "latest",
+    "esno": "^4.7.0",
     "typescript": "^5.4.5"
   },
   "ava": {

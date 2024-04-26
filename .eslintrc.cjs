@@ -7,4 +7,11 @@ module.exports = {
   env: {
     node: true,
   },
+
+  override: [{
+    files: [ "**/*.js" ],
+    parserOptions: {
+      sourceType: "module",
+    },
+  }]
 };
