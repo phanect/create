@@ -28,12 +28,6 @@ module.exports = {
         message: "Is this a library or an app?",
       },
       {
-        name: "lang",
-        type: "list",
-        choices: [ "javascript", "typescript" ],
-        message: "Which language do you use?",
-      },
-      {
         name: "env",
         type: "list",
         choices: [ "browser", "node" ],
@@ -50,12 +44,6 @@ module.exports = {
         "LICENSE-CC0": "license === 'CC0-1.0'",
         "LICENSE-MIT.ejs": "license === 'MIT'",
         "LICENSE-APACHE": "license === 'Apache-2.0'",
-        "test/main.test.js": "lang === 'javascript'",
-        "test/testutils.js": "lang === 'javascript'",
-        "tsconfig.json": "lang === 'typescript'",
-        "test/main.test.ts": "lang === 'typescript'",
-        "test/testutils.ts": "lang === 'typescript'",
-        "test/tsconfig.json": "lang === 'typescript'",
       },
     },
     {
@@ -76,41 +64,27 @@ module.exports = {
   async completed() {
     this.gitInit();
 
-    let devDependencies = [
+    const devDependencies = [
+      "@types/jest",
       "eslint",
       "eslint-config-phanective",
       "jest",
+      "ts-jest",
+      "typescript",
     ];
 
-    if (this.answers.lang === "typescript") {
-      devDependencies = devDependencies.concat([
-        "@types/jest",
-        "ts-jest",
-        "typescript",
-      ]);
-    }
-
-    if (this.answers.lang === "typescript" && this.answers.env === "node") {
+    if (this.answers.env === "node") {
       devDependencies.push("@types/node");
       devDependencies.push("esno");
-    }
 
-    if (
-      this.answers.lang === "typescript" &&
-      this.answers.env === "node" &&
-      this.answers.type === "lib"
-    ) {
-      devDependencies.push("esno");
-    }
-
-    if (this.answers.lang === "typescript" && this.answers.env === "browser") {
-      devDependencies.push("ts-loader");
+      if (this.answers.type === "lib") {
+        devDependencies.push("esno");
+      }
     }
 
     if (this.answers.env === "browser") {
-      devDependencies.push(
-        "vite",
-      );
+      devDependencies.push("ts-loader");
+      devDependencies.push("vite");
     }
 
     await this.npmInstall({
