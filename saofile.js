@@ -28,12 +28,6 @@ module.exports = {
         message: "Is this a library or an app?",
       },
       {
-        name: "lang",
-        type: "list",
-        choices: [ "javascript", "typescript" ],
-        message: "Which language do you use?",
-      },
-      {
         name: "env",
         type: "list",
         choices: [ "browser", "node" ],
@@ -50,12 +44,6 @@ module.exports = {
         "LICENSE-CC0": "license === 'CC0-1.0'",
         "LICENSE-MIT.ejs": "license === 'MIT'",
         "LICENSE-APACHE": "license === 'Apache-2.0'",
-        "test/main.test.js": "lang === 'javascript'",
-        "test/testutils.js": "lang === 'javascript'",
-        "tsconfig.json": "lang === 'typescript'",
-        "test/main.test.ts": "lang === 'typescript'",
-        "test/testutils.ts": "lang === 'typescript'",
-        "test/tsconfig.json": "lang === 'typescript'",
         "vite.config.ts": "env === 'browser'",
       },
     },
@@ -81,24 +69,11 @@ module.exports = {
       "eslint",
       "eslint-config-phanective",
       "vitest",
+      "typescript",
     ];
 
-    if (this.answers.lang === "typescript") {
-      devDependencies = devDependencies.concat([
-        "typescript",
-      ]);
-    }
-
-    if (this.answers.lang === "typescript" && this.answers.env === "node") {
+    if (this.answers.env === "node") {
       devDependencies.push("@types/node");
-      devDependencies.push("esno");
-    }
-
-    if (
-      this.answers.lang === "typescript" &&
-      this.answers.env === "node" &&
-      this.answers.type === "lib"
-    ) {
       devDependencies.push("esno");
     }
 
