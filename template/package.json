@@ -28,21 +28,7 @@
   "scripts": {
     <% if (env === "browser") { %>
     "dev": "vite",
-    <%
-    } else if (
-      lang === "javascript" &&
-      env === "node" &&
-      type === "app"
-    ) {
-    %>
-    "dev": "node main.ts",
-    <%
-    } else if (
-      lang === "typescript" &&
-      env === "node" &&
-      type === "app"
-    ) {
-    %>
+    <% } else if (env === "node" && type === "app") { %>
     "dev": "esno main.ts",
     <% } %>
     "build": "vite build",
