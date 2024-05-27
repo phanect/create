@@ -61,7 +61,7 @@
   "dependencies": {},
   "devDependencies": {},
   "engines": {
-    "node": "<%= (type === 'lib') ? '>=18.x' : '20.x' %>",
+    "node": "<%= (type === 'lib') ? '>=18.x' : '22.x' %>",
     "npm": "<%= (type === 'lib') ? '>=9.x' : '>=10.x' %>"
   }
 }
