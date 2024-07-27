@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -34,4 +35,5 @@ export default defineConfig({
     port: 3000,
   },
 <% } -%>
+  test: {},
 });

@@ -80,13 +80,11 @@ module.exports = {
     let devDependencies = [
       "eslint",
       "eslint-config-phanective",
-      "jest",
+      "vitest",
     ];
 
     if (this.answers.lang === "typescript") {
       devDependencies = devDependencies.concat([
-        "@types/jest",
-        "ts-jest",
         "typescript",
       ]);
     }
