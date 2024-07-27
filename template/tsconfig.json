@@ -1,23 +1,5 @@
 {
-  "compilerOptions": {
-    "declaration": true,
-    "esModuleInterop": true,
-    "module": "ESNext",
-    "target": "ESNext",
-    "alwaysStrict": true,
-    "moduleResolution": "nodenext",
-    "lib": [
-      "dom",
-      "esnext"
-    ],
-    "newLine": "lf",
-    "outDir": "./dist",
-    "preserveConstEnums": true,
-    "removeComments": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "resolveJsonModule": true
-  },
+  "extends": "@phanect/configs/tsconfig/frontend",
   "include": [
     "**/*.ts",
     "**/*.tsx",

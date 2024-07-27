@@ -66,6 +66,7 @@ module.exports = {
     this.gitInit();
 
     let devDependencies = [
+      "@phanect/configs",
       "@types/node",
       "eslint",
       "eslint-config-phanective",
