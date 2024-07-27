@@ -2,8 +2,7 @@
 # Project-Specific
 #
 
-# Built files
-dist/
+# TODO
 
 #
 # System
@@ -32,14 +31,44 @@ Thumbs.db
 node_modules/
 .npm/
 .yarn-integrity
+
+# Output of `npm pack`
+*.tgz
 <% if (type === "lib") { %>
 # Lockfiles are not required for npm packages
 package-lock.json
 yarn.lock
+pnpm-lock.yaml
+bun.lockb
 <% } else { %>
 # npm is the package manager for this project.
 yarn.lock
+pnpm-lock.yaml
+bun.lockb
 <% } %>
-# Others
+# Node.js
 .node_repl_history
+
+# TypeScript
+*.tsbuildinfo
+
+# Frameworks
+.next/
+.nuxt/
+out/
+dist/
+.svelte-kit/
+.astro/
+
+# Platforms
+.wrangler/
+.vercel/
+.netlify/
+
+# dotenv
+.env
+.env.*
+!.env.example
+
+# ESLint
 .eslintcache
