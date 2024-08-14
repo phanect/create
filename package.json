@@ -11,9 +11,11 @@
   "bin": "./bin/cli.js",
   "scripts": {
     "gen": "node ./bin/cli.js ./gen",
-    "test": "ejslint ./template/* && ava",
+    "test": "ava",
     "snapshot": "ava --update-snapshots",
-    "check": "biome check",
+    "check": "npm run check:biome && npm run check:ejs",
+    "check:biome": "biome check",
+    "check:ejs": "ejslint ./template/*",
     "fix": "biome check --write",
     "release": "npm publish --access public --non-interactive"
   },
