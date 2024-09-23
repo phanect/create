@@ -67,9 +67,12 @@ module.exports = {
 
     let devDependencies = [
       "@phanect/configs",
+      "@phanect/lint",
+      "@phanect/lint-vue",
+      "@phanect/lint-svelte",
+      "@phanect/lint-astro",
       "@types/node",
       "eslint",
-      "eslint-config-phanective",
       "esno",
       "vitest",
       "typescript",
