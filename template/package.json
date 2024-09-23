@@ -42,6 +42,6 @@
   "devDependencies": {},
   "engines": {
     "node": "<%= (type === 'lib') ? '18.x || 20.x || >=22.x' : '22.x' %>",
-    "npm": "<%= (type === 'lib') ? '>=9.x' : '>=10.x' %>"
+    "npm": ">=10.x"
   }
 }
