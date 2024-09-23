@@ -66,16 +66,13 @@ module.exports = {
     this.gitInit();
 
     let devDependencies = [
+      "@types/node",
       "eslint",
       "eslint-config-phanective",
+      "esno",
       "vitest",
       "typescript",
     ];
-
-    if (this.answers.env === "node") {
-      devDependencies.push("@types/node");
-      devDependencies.push("esno");
-    }
 
     if (this.answers.env === "browser") {
       devDependencies.push(
