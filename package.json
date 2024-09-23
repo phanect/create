@@ -10,18 +10,19 @@
   "license": "CC0-1.0",
   "license": "AGPL-3.0",
   "license": "UNLICENSED",
+
   "private": true, // TODO remove this if the project is an npm package
   "type": "module",
 
   // ▼▼ TODO Add this section if the project is an npm package ▼▼
   "main": "./dist/main.cjs",
   "module": "./dist/main.js",
-  "types": "./dist/types/main.d.ts",
+  "types": "./dist/main.d.ts",
   "exports": {
     ".": {
       "import": {
-        "default": "./dist/main.mjs",
-        "types": "./dist/types/main.d.ts"
+        "types": "./dist/main.d.ts",
+        "default": "./dist/main.js"
       },
       "require": "./dist/main.cjs"
     }
