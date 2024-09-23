@@ -1,7 +1,10 @@
 # <%= name %>
 
 <% if (license !== "UNLICENSED") { -%>
-## License
+## License & Credits
 
-<%= license %>
-<% } -%>
+Licensed under the [%LICENSE_NAME% License](./LICENSE.txt).
+
+This repository includes the code derived from the following opensource projects:
+
+- [%PRODUCT_NAME%](https://github.com/%ORG_OR_USER%/%REPO%) licensed under %LICENSE_NAME%, created by [%AUTOHR%](%https://author-page.example.com%) and its [contributors](https://github.com/%ORG_OR_USER%/%REPO%/graphs/contributors).
