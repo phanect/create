@@ -39,9 +39,11 @@ updates:
         patterns:
           - "*"
 
+  # ▼▼ TODO Remove if not required ▼▼
   - package-ecosystem: "docker"
     directory: "/"
     schedule:
       interval: "daily"
     assignees:
       - "phanect"
+  # ▲▲ TODO Remove if not required ▲▲

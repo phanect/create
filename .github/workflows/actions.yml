@@ -26,14 +26,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-<% if (type === "app") { -%>
-          cache: npm
-<% } -%>
-<% if (type === "lib") { -%>
-      - run: npm install
-<% } else if (type === "app") { -%>
-      - run: npm ci
-<% } -%>
+          # cache: npm # TODO Add this line if the projects has lock files (e.g. web apps)
+
+      # TODO Choose one of these
+      # - run: npm ci # If the project DOES have lock files in the repo (e.g. web apps)
+      # - run: npm install # If the project does NOT have lock files in the repo (e.g. npm packages)
       - run: npm run build
       - run: npm test
 
@@ -49,10 +46,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-<% if (type === "app") { -%>
-          cache: npm
-<% } -%>
-      - run: npm <% type === "app" ? "ci" : "install" %>
+          # cache: npm # TODO Add this line if the projects has lock files (e.g. web apps)
+
+      # TODO Choose one of these
+      # - run: npm ci # If the project DOES have lock files in the repo (e.g. web apps)
+      # - run: npm install # If the project does NOT have lock files in the repo (e.g. npm packages)
       - run: npm run lint
 
   # ▼▼ TODO Add this section if the project is a web app ▼▼

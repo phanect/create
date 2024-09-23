@@ -55,20 +55,25 @@ pnpm-debug.log*
 
 # Output of `npm pack`
 *.tgz
-<% if (type === "lib") { %>
+
+# ▼▼ TODO Add this section if the project does NOT require the lock files e.g. npm packages ▼▼
+
 # Lockfiles are not required for npm packages
 package-lock.json
-yarn.lock
-pnpm-lock.yaml
-bun.lockb
-npm-shrinkwrap.json
-<% } else { %>
+
+# ▲▲ TODO Add this section if the project does NOT require the lock files e.g. npm packages ▲▲
+
+# ▼▼ TODO Add this section if the project DOES require the lock files e.g. web apps ▼▼
+
 # npm is the package manager for this project.
+
+# ▲▲ TODO Add this section if the project DOES require the lock files e.g. web apps ▲▲
+
 yarn.lock
 pnpm-lock.yaml
 bun.lockb
 npm-shrinkwrap.json
-<% } %>
+
 # Node.js
 .node_repl_history
 

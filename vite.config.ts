@@ -8,7 +8,7 @@ const packageJson = JSON.parse((await readFile(join(import.meta.dirname, "packag
 const deps = Object.keys(packageJson.dependencies ?? {});
 
 export default defineConfig({
-<% if (type === "lib") { -%>
+  // ▼▼ TODO Add this section if the project is an npm package ▼▼
   build: {
     lib: {
       entry: join(import.meta.dirname, "src/main.ts"),
@@ -27,10 +27,13 @@ export default defineConfig({
       rollupTypes: true, // Generate single d.ts file
     }),
   ],
-<% } else if (type === "app") { -%>
+  // ▲▲ TODO Add this section if the project is an npm package ▲▲
+
+  // ▼▼ TODO Add this section if the project is an app ▼▼
   server: {
     port: 3000,
   },
-<% } -%>
-  test: {},
+  // ▲▲ TODO Add this section if the project is an app ▲▲
+
+  test: {}, // TODO Remove this line if you don't use Vitest in the project
 });
