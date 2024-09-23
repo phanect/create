@@ -39,7 +39,23 @@
     "test": "vitest run"
   },
   "dependencies": {},
-  "devDependencies": {},
+  // TODO The package version is probably outdated, so check with `npm outdated` and update them.
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240909.0",
+    "@phanect/configs": "latest",
+    "@phanect/lint": "latest",
+    "@phanect/lint-vue": "latest",
+    "@phanect/lint-svelte": "latest",
+    "@phanect/lint-astro": "latest",
+    "@types/node": "^22.5.5",
+    "eslint": "^9.11.0",
+    "esno": "latest",
+    "tsup": "^8.3.0", // TODO for Node.js projects which requires bundling
+    "typescript": "^5.6.2",
+    "vite": "^5.4.7", // TODO for frontend projects
+    "vitest": "^2.1.1",
+    "wrangler": "^3.78.2"
+  },
   "engines": {
     "node": "<%= (type === 'lib') ? '18.x || 20.x || >=22.x' : '22.x' %>",
     "npm": ">=10.x"
