@@ -2,7 +2,7 @@ import { defineConfig } from "tsup";
 
 export default defineConfig({
   entry: {
-    eslint: "src/eslint.ts",
+    main: "src/main.ts",
   },
   target: "node18",
   format: "esm",
