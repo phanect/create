@@ -1,17 +1,19 @@
 {
-  "name": "<%= name %>",
+  "name": "%NAME%", // TODO
   "version": "1.0.0",
   "description": "",
-  <% if (type === "lib") { %>
-  "keywords": [],
-  <% } %>
-  "author": "<%- owner === 'personal' ? 'Jumpei Ogawa (https://phanective.org)' : 'Geolonia, Inc. (https://geolonia.com)' %>",
-  "license": "<%= license %>",
-  <% if (type === "app") { %>
-  "private": true,
-  <% } %>
+  "keywords": [], // TODO Add this if the project is an npm package
+  "author": "Jumpei Ogawa (https://phanective.org)", // TODO Update here if necessary
+  // TODO Choose one or another
+  "license": "Apache-2.0",
+  "license": "MIT",
+  "license": "CC0-1.0",
+  "license": "AGPL-3.0",
+  "license": "UNLICENSED",
+  "private": true, // TODO remove this if the project is an npm package
   "type": "module",
-  <% if (type === "lib" || env === "node") { %>
+
+  // ▼▼ TODO Add this section if the project is an npm package ▼▼
   "main": "./dist/main.cjs",
   "module": "./dist/main.js",
   "types": "./dist/types/main.d.ts",
@@ -24,18 +26,19 @@
       "require": "./dist/main.cjs"
     }
   },
-  <% } %>
+  // ▲▲ TODO Add this section if the project is an npm package ▲▲
+
   "scripts": {
-    <% if (env === "browser") { %>
+    // TODO Choose one or another
     "dev": "vite",
-    <% } else if (env === "node" && type === "app") { %>
     "dev": "esno main.ts",
-    <% } %>
+
     "build": "vite build",
     "lint": "eslint --ext=.js,.jsx,.ts,.tsx,.vue,.json .",
-    <% if (type === "lib") { %>
+
+    // TODO Add this if the project is an npm package
     "release": "npm publish --access public --non-interactive",
-    <% } %>
+
     "test": "vitest run"
   },
   "dependencies": {},
@@ -57,7 +60,10 @@
     "wrangler": "^3.78.2"
   },
   "engines": {
-    "node": "<%= (type === 'lib') ? '18.x || 20.x || >=22.x' : '22.x' %>",
+    // TODO Choose one or another
+    "node": "22.x", // For apps
+    "node": "18.x || 20.x || >=22.x", // For npm packages
+
     "npm": ">=10.x"
   }
 }

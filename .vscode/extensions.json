@@ -3,6 +3,8 @@
     "dbaeumer.vscode-eslint",
     "EditorConfig.EditorConfig"
 
+    // ▼▼ TODO Add required extensions ▼▼
+
     // "astro-build.astro-vscode", // Astro
     // "svelte.svelte-vscode", // Svelte
     // "Vue.volar", // Vue
