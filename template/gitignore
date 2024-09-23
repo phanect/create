@@ -8,10 +8,6 @@
 # System
 #
 
-# Logs
-logs/
-*.log
-
 # PIDs
 *.pid
 *.seed
@@ -22,6 +18,26 @@ pids
 .directory
 Thumbs.db
 .DS_Store
+
+#
+# Generic
+#
+
+# Build directory
+dist/
+
+# tmp files
+temp/
+tmp/
+
+# Logs
+logs/
+*.log
+
+# dotenv
+.env
+.env.*
+!.env.example
 
 #
 # JavaScript
@@ -56,7 +72,6 @@ bun.lockb
 .next/
 .nuxt/
 out/
-dist/
 .svelte-kit/
 .astro/
 
@@ -64,11 +79,6 @@ dist/
 .wrangler/
 .vercel/
 .netlify/
-
-# dotenv
-.env
-.env.*
-!.env.example
 
 # ESLint
 .eslintcache
