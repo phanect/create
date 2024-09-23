@@ -1,0 +1,25 @@
+# TODO Remove this file if the project is not Cloudflare Pages or Workers project
+
+#:schema node_modules/wrangler/config-schema.json
+name = "%CLOUDFLARE_PROJECT_NAME%" # TODO
+# TODO Set the latest compatibility date
+# See: https://developers.cloudflare.com/workers/configuration/compatibility-dates/#allow-specifying-a-custom-port-when-making-a-subrequest-with-the-fetch-api
+compatibility_date = "2024-09-02"
+compatibility_flags = [ "nodejs_compat" ] # TODO Remove this if Node.js API is not required
+pages_build_output_dir = "./dist"
+
+# Smart Placement
+# https://developers.cloudflare.com/pages/functions/smart-placement/#smart-placement
+[placement]
+mode = "smart"
+
+[env.production.vars]
+NODE_ENV = "production"
+SERVER_ENV = "production"
+NODE_VERSION = "22"
+NPM_VERSION = "10"
+
+[env.preview.vars]
+SERVER_ENV = "preview"
+NODE_VERSION = "22"
+NPM_VERSION = "10"
