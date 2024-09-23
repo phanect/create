@@ -55,6 +55,25 @@ jobs:
       - run: npm <% type === "app" ? "ci" : "install" %>
       - run: npm run lint
 
+  # ▼▼ TODO Add this section if the project is a web app ▼▼
+  deploy:
+    needs:
+      - test
+      - lint
+    if: github.event_name == 'release'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+      - run: npm run build
+      - run: npm run deploy
+  # ▲▲ TODO Add this section if the project is a web app ▲▲
+
   # ▼▼ TODO Add this section if the project is an npm package ▼▼
   publish:
     needs:
