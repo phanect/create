@@ -64,35 +64,6 @@ module.exports = {
   ],
   async completed() {
     this.gitInit();
-
-    let devDependencies = [
-      "@phanect/configs",
-      "@phanect/lint",
-      "@phanect/lint-vue",
-      "@phanect/lint-svelte",
-      "@phanect/lint-astro",
-      "@types/node",
-      "eslint",
-      "esno",
-      "vitest",
-      "typescript",
-      "@cloudflare/workers-types",
-      "wrangler",
-    ];
-
-    if (this.answers.env === "browser") {
-      devDependencies.push(
-        "vite",
-      );
-    } else {
-      devDependencies.push("tsup");
-    }
-
-    await this.npmInstall({
-      packages: devDependencies,
-      saveDev: true,
-    });
-
     this.showProjectTips();
   },
 };
