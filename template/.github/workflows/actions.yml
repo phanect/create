@@ -55,6 +55,7 @@ jobs:
       - run: npm <% type === "app" ? "ci" : "install" %>
       - run: npm run lint
 
+  # ▼▼ TODO Add this section if the project is an npm package ▼▼
   publish:
     needs:
       - test
@@ -66,16 +67,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-<% if (type === "app") { -%>
-          cache: npm
-<% } -%>
-<% if (type === "lib") { -%>
-      - run: npm install
-<% } else if (type === "app") { -%>
-      - run: npm ci
-<% } -%>
+
+      - run: npm install # If the project does NOT have lock files in the repo (e.g. npm packages)
       - run: npm run build
 
       - name: Set npm auth token
         run: echo "//registry.npmjs.org/:_authToken=${{secrets.NPM_AUTH_TOKEN}}" > ~/.npmrc
       - run: npm run release
+  # ▲▲ TODO Add this section if the project is an npm package ▲▲
