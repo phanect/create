@@ -76,6 +76,8 @@ module.exports = {
       "esno",
       "vitest",
       "typescript",
+      "@cloudflare/workers-types",
+      "wrangler",
     ];
 
     if (this.answers.env === "browser") {
