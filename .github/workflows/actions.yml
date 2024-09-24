@@ -36,16 +36,12 @@ jobs:
 
   lint:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version:
-          - 22
     steps:
       - uses: actions/checkout@v4
-      - name: Use Node.js v${{ matrix.node-version }}
+      - name: Use Node.js v22
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 22
           # cache: npm # TODO Add this line if the projects has lock files (e.g. web apps)
 
       # TODO Choose one of these
