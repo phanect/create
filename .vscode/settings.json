@@ -1,4 +1,8 @@
 {
+  "javascript.preferences.importModuleSpecifierEnding": "js",
+  "javascript.preferences.quoteStyle": "double",
+  "typescript.preferences.preferTypeOnlyAutoImports": true,
+
   "eslint.validate": [
     "javascript",
     "typescript",
