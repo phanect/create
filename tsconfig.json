@@ -1,5 +1,5 @@
 {
-  "extends": "@phanect/configs/tsconfig/frontend",
+  "extends": "@phanect/configs/ts/frontend",
   "include": [
     "**/*.ts",
     "**/*.tsx",
