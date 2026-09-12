@@ -1,11 +1,15 @@
+import { fileURLToPath } from "node:url";
 // TODO Remove imports you don't use
 import { core, nodejs, unbundled } from "@phanect/lint";
 import { react, nextjs } from "@phanect/lint-react";
 import { svelte } from "@phanect/lint-svelte";
 import { astro } from "@phanect/lint-astro";
-import { defineConfig, globalIgnores } from "eslint/config";
+import { defineConfig, globalIgnores, includeIgnoreFile } from "eslint/config";
+
+const gitignorePath = fileURLToPath(new URL("./.gitignore", import.meta.url));
 
 const configs = defineConfig([
+  includeIgnoreFile(gitignorePath),
   globalIgnores([
     "./**/dist/**",
   ]),
