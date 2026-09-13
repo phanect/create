@@ -1,4 +1,10 @@
 packages:
   - "projects/*"
+
+# TODO Remove this file if the project is an npm package.
+# If you keep this file in npm package, it may cause an error
+# when the package is used with unsupported Node.js version
+engineStrict: true
+
 minimumReleaseAge: 4320 # 72 hours
 minimumReleaseAgeExcludePrune: true
